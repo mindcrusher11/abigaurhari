@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
+<ivy-report version="1.0">
+	<info
+		organisation="default"
+		module="abigaurhari-build"
+		revision="0.1-SNAPSHOT"
+		extra-scalaVersion="2.10"
+		extra-sbtVersion="0.13"
+		conf="test"
+		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
+		date="20161126161222"/>
+	<dependencies>
+		<module organisation="com.typesafe.sbt" name="sbt-aspectj">
+			<revision name="0.10.6" status="release" pubdate="20160317094856" resolver="sbt-plugin-releases" artresolver="sbt-plugin-releases" extra-scalaVersion="2.10" extra-sbtVersion="0.13" downloaded="true" searched="true" default="false" conf="compile, default(compile)" position="0">
+				<metadata-artifact status="successful" details="" size="1793" time="2138" location="/home/gaur/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-aspectj/ivy-0.10.6.xml" searched="true" original-local-location="/home/gaur/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-aspectj/ivy-0.10.6.xml.original" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-aspectj/scala_2.10/sbt_0.13/0.10.6/ivys/ivy.xml"/>
+				<caller organisation="default" name="abigaurhari-build" conf="test, compile, runtime" rev="0.10.6" rev-constraint-default="0.10.6" rev-constraint-dynamic="0.10.6" callerrev="0.1-SNAPSHOT" extra-scalaVersion="2.10" extra-sbtVersion="0.13"/>
+				<artifacts>
+					<artifact name="sbt-aspectj" type="jar" ext="jar" status="successful" details="" size="62836" time="2497" location="/home/gaur/.ivy2/cache/scala_2.10/sbt_0.13/com.typesafe.sbt/sbt-aspectj/jars/sbt-aspectj-0.10.6.jar">
+						<origin-location is-local="false" location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.typesafe.sbt/sbt-aspectj/scala_2.10/sbt_0.13/0.10.6/jars/sbt-aspectj.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.aspectj" name="aspectjtools">
+			<revision name="1.8.9" status="release" pubdate="20160314232823" resolver="public" artresolver="public" homepage="http://www.aspectj.org" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="1">
+				<license name="Eclipse Public License - v 1.0" url="http://www.eclipse.org/legal/epl-v10.html"/>
+				<metadata-artifact status="successful" details="" size="1021" time="106" location="/home/gaur/.ivy2/cache/org.aspectj/aspectjtools/ivy-1.8.9.xml" searched="true" original-local-location="/home/gaur/.ivy2/cache/org.aspectj/aspectjtools/ivy-1.8.9.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/aspectj/aspectjtools/1.8.9/aspectjtools-1.8.9.pom"/>
+				<caller organisation="com.typesafe.sbt" name="sbt-aspectj" conf="compile" rev="1.8.9" rev-constraint-default="1.8.9" rev-constraint-dynamic="1.8.9" callerrev="0.10.6"/>
+				<artifacts>
+					<artifact name="aspectjtools" type="jar" ext="jar" status="successful" details="" size="16856055" time="11630" location="/home/gaur/.ivy2/cache/org.aspectj/aspectjtools/jars/aspectjtools-1.8.9.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/aspectj/aspectjtools/1.8.9/aspectjtools-1.8.9.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+	</dependencies>
+</ivy-report>

@@ -1,0 +1,7 @@
+[0m[[0mdebug[0m] [0mRunning TaskDef(org.gaur.service.SparkProcessTests, sbt.SubclassFingerprintWrapper@7d03acab, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(org.gaur.service.UtilityTest, sbt.SubclassFingerprintWrapper@7d03acab, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mSummary for JUnit not available.[0m
+[0m[[0minfo[0m] [0mPassed: Total 7, Failed 0, Errors 0, Passed 7[0m
+[0m[[0mdebug[0m] [0mPassed tests:[0m
+[0m[[0mdebug[0m] [0m	org.gaur.service.SparkProcessTests[0m
+[0m[[0mdebug[0m] [0m	org.gaur.service.UtilityTest[0m

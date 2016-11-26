@@ -1,0 +1,5 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(/home/gaur/abigaurhari/src/main/resources/ukpostcodes.csv,/home/gaur/abigaurhari/target/scala-2.10/classes/ukpostcodes.csv)[0m
+[0m[[0mdebug[0m] [0m	(/home/gaur/abigaurhari/src/main/resources/application.conf,/home/gaur/abigaurhari/target/scala-2.10/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/home/gaur/abigaurhari/src/main/resources/T201109PDP IEXT.CSV,/home/gaur/abigaurhari/target/scala-2.10/classes/T201109PDP IEXT.CSV)[0m
+[0m[[0mdebug[0m] [0m	(/home/gaur/abigaurhari/src/main/resources/T201202ADD REXT (2).CSV,/home/gaur/abigaurhari/target/scala-2.10/classes/T201202ADD REXT (2).CSV)[0m

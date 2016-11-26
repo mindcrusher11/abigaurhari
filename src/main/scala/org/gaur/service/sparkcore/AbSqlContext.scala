@@ -17,10 +17,9 @@ object AbSqlContext {
 
   def getSparkContext():SparkContext={
     val confInfo = Utility.getConfigInstance()
-    println(confInfo.getString("spark_kafka.masterUrl"))
-    println(confInfo.getString("spark_kafka.appName"))
     val sConf = new SparkConf().setMaster(confInfo.getString("spark_kafka.masterUrl")).setAppName(confInfo.getString("spark_kafka.appName"))
     val abSparkContext = new SparkContext(sConf)
+    abSparkContext.setLogLevel("ERROR")
     abSparkContext
   }
 

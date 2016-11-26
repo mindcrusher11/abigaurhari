@@ -24,16 +24,13 @@ class SparkProcessTests extends TestCase{
   var confInfo:Config= _
 
   override def setUp(): Unit = {
-    println("inside setup ")
     confInfo = Utility.getConfigInstance()
     sparkProcess = new SparkProcessFile
     sparkCsvReader = new SparkCsvReader(confInfo.getString("file_path.practiceFilePath"))
     sparkDataFrame = sparkCsvReader.getDataFrame()
-
   }
 
  def testRowCount(): Unit = {
-    println("inside test row count testcase")
     assertEquals(sparkDataFrame.count(),10074)
   }
   /*
@@ -75,14 +72,18 @@ class SparkProcessTests extends TestCase{
   def testTotalPracticesInCounty():Unit={
     val practiceDataFrame = sparkProcess.getAsDataFrame(confInfo.getString("file_path.practiceFilePath"),Utility.getSparkSchema[PracticeInfoModel])
     val valueCount = sparkProcess.getColumnValueCount(practiceDataFrame,"county","LONDON")
+    println("=========================================================================================")
     println("number of practices in London are :- " + valueCount)
+    println("=========================================================================================")
     assert(valueCount.equals(754L))
   }
 
   def testAvgColumn():Unit={
     val prescriptionDataFrame = sparkProcess.getAsDataFrame(confInfo.getString("file_path.prescriptionFilePath"),Utility.getSparkSchema[PrescriptionModel]).filter("practiceId is not null")
     val avgValue = sparkProcess.getItemAvgInColumn(prescriptionDataFrame,"bnfName","Peppermint Oil","actualCost")
+    println("=========================================================================================")
     println("average value of peppermint oil is :- " + avgValue)
+    println("=========================================================================================")
     assert(avgValue.equals(52.85308086560365))
   }
 
@@ -91,7 +92,10 @@ class SparkProcessTests extends TestCase{
     val practiceDataFrame = sparkProcess.getAsDataFrame(confInfo.getString("file_path.practiceFilePath"),Utility.getSparkSchema[PracticeInfoModel]).filter("practiceId is not null")
     val joinedDataFrame = sparkProcess.joinDataFrame(prescriptionDataFrame, practiceDataFrame,Seq("practiceId"),"LeftOuter")
     val topItems = sparkProcess.getTopNItemsAggregate(joinedDataFrame,"postCode",5,"actualCost")
+    println("=========================================================================================")
+    println("top five items according to postcode and actualcost")
     topItems.map(row => println(row))
+    println("=========================================================================================")
     assert(topItems.head.getString(0).equals("SK11 6JL"))
   }
 
@@ -110,16 +114,22 @@ class SparkProcessTests extends TestCase{
     val fluclolaxicilinUdf = udf(filterFluclolaxicilin)
     val fluclolaxicilinData = joinedDataFrame.filter(fluclolaxicilinUdf(col("bnfName")))
     val regionMean = fluclolaxicilinData.groupBy("uk_region").agg(avg("actualCost").alias("avgCost"))
-
+    println("=========================================================================================")
+    println("average cost of flucloxaclin by region")
+    regionMean.show()
+    println("=========================================================================================")
     var nationalMean = fluclolaxicilinData.agg(avg("actualCost").alias("nationalMean")).head().getDouble(0)
-    println(nationalMean)
+    println("=========================================================================================")
+    println("national mean is " + nationalMean)
+    println("=========================================================================================")
 
     val deviationFromMean:(Double => Double) = (inputMean:Double) => {inputMean - nationalMean}
     val meanDeviationUdf = udf(deviationFromMean)
-
+    println("=========================================================================================")
+    println("deviation from national mean")
     val output = regionMean.withColumn("deviation",meanDeviationUdf(col("avgCost")))
-
     output.show()
+    println("=========================================================================================")
     assert(output.head().getDouble(1).equals(191.07))
   }
 }

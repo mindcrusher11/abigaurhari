@@ -34,8 +34,6 @@ case class SparkCsvReader(argInputPath:String) extends IAbFileReader{
           // // Automatically infer data types
           schemaDataFrame = outDataframe.schema(schemaObject).load(inputPath)
         }
-      println(schemaDataFrame.count() + "after calling dataframe")
-
       outputDataFrame = schemaDataFrame
     }
 
@@ -52,7 +50,6 @@ case class SparkCsvReader(argInputPath:String) extends IAbFileReader{
   }
 
   def getData(inputPath:String=argInputPath,headerLine:String=AbiConstants.TRUE, inferSchemaCheck:String=AbiConstants.TRUE,schemaObject:StructType): DataFrame={
-    println("arginputpath is "+ argInputPath)
     getDataFrame(argInputPath,headerLine,inferSchemaCheck,schemaObject)
     outputDataFrame
   }

@@ -28,7 +28,6 @@ object Utility {
   }
 
   def getConfigInstance(configPath:String=AbiConstants.CONFIG_PATH):Config = {
-    println("config file path is " + configPath)
     val confInfo = ConfigFactory.parseFile(new File(configPath))
     confInfo
   }
